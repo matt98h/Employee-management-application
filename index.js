@@ -64,7 +64,7 @@ function addEmployee() {
         }
     ]).then(function (answers) {
         ORM.createEmployee("employee", ["first_name", "last_name"], [answers.firstName, answers.lastName]);
-        conosle.table(ORM.selectAll("employee"));
+        console.table(ORM.selectAll("employee"));
         start();
     })
 }
