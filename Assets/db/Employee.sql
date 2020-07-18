@@ -24,8 +24,9 @@ PRIMARY KEY (id),
 FOREIGN KEY (role_id) REFERENCES employeeRole(id)
 );
 
-SELECT employee(id), employee(first_name), employee(last_name), employeeRole(title),department(deptName),employeeRole(salary)
+CREATE TABLE allinfo AS
+SELECT employee.id, employee.first_name, employee.last_name, employeeRole.title,department.deptName,employeeRole.salary 
 FROM ((employee
-INNER JOIN employeeRole ON employeeRole.id = employee.roleId)
+INNER JOIN employeeRole ON employeeRole.id = employee.role_id)
 INNER JOIN department on department.id = employeeRole.department_id)
 
